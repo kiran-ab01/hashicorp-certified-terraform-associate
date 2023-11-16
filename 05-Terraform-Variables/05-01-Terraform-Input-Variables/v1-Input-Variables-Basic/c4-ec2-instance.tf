@@ -12,7 +12,7 @@ resource "aws_instance" "my-ec2-vm" {
     sudo systemctl start httpd
     echo "<h1>Welcome to StackSimplify ! AWS Infra created using Terraform in us-east-1 Region</h1>" > /var/www/html/index.html
     EOF
-  vpc_security_group_ids = [aws_security_group.vpc-ssh.id, aws_security_group.vpc-web.id]
+  vpc_security_group_ids = [aws_security_group.vpc-ssh.id, aws_security_group.vpc-web.id]          #to include all security_groups resources make use of vpc_security_ids
   tags = {
     "Name" = "myec2vm"
   }
